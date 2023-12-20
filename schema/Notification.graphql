@@ -1,0 +1,17 @@
+enum NotificationTypes {
+    referral
+}
+
+type Notification {
+    id: String
+    user: User!
+    item_type: NotificationTypes!
+    referral: Referral
+    createdAt: String
+}
+
+input CreateNotificationInput {
+    userId: String!
+    item_type: NotificationTypes!
+    referralId: String
+}

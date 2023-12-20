@@ -1,0 +1,19 @@
+type Referral {
+    id: String
+    user: User!
+    referralCodeUsed: String!
+    referredUsed: User!
+    createdAt: String
+    updatedAt: String
+}
+
+input CreateReferralInput {
+    userId: String!
+    referralCodeUsed: String!
+    referredUsedId: String!
+}
+
+input UpdateReferralInput {
+    referralCodeUsed: String
+    referredUsedId: String
+}

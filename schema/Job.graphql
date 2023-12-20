@@ -1,0 +1,92 @@
+enum DeliveryCompanies {
+    uber_eats
+}
+
+type Job {
+    id: String
+    restaurant: Restaurant!
+    earningAmount: Float!
+    expirationTime: String!
+    description: String!
+    timeToFinish: Int!
+    createdAt: String
+    updatedAt: String
+}
+
+type CompleteJobInfo {
+    job: Job
+    jobDeliveries: DeliveryCompanies
+}
+
+type JobDelivery {
+    id: String
+    user: User!
+    deliveryCompany: DeliveryCompanies!
+}
+
+enum TakenJobStatusTypes {
+    PROCESSING
+    FINISHED
+    CANCELED
+}
+
+type TakenJob {
+    id: String
+    job: Job!
+    user: User!
+    status: TakenJobStatusTypes!
+    createdAt: String
+}
+
+
+input UpdateJobDeliveryInput {
+    deliveryCompany: DeliveryCompanies
+}
+
+input CreateCompleteJobInfoInput {
+    restaurantId: String!
+    earningAmount: Float!
+    expirationTime: String!
+    description: String!
+    timeToFinish: Int!
+    jobDeliveries: [CreateJobDeliveryInput!]
+}
+
+input UpdateCompleteJobInfoInput {
+    earningAmount: Float
+    expirationTime: String
+    description: String
+    timeToFinish: Int
+    jobDeliveries: [CreateJobDeliveryInput!]
+}
+
+input CreateJobDeliveryInput {
+    userId: String!
+    deliveryCompany: DeliveryCompanies!
+}
+
+
+input TakeJobInput {
+    jobId: String!
+    userId: String!
+    status: TakenJobStatusTypes!
+}
+
+input UpdateTakenJobInput {
+    status: TakenJobStatusTypes
+}
+
+input CreateJobInput {
+    restaurantId: String!
+    earningAmount: Float!
+    expirationTime: String!
+    description: String!
+    timeToFinish: Int!
+}
+
+input UpdateJobInput {
+    earningAmount: Float
+    expirationTime: String
+    description: String
+    timeToFinish: Int
+}

@@ -1,0 +1,90 @@
+type Query {
+    getUserById(id: ID!): User
+    getRestaurantById(id: ID!): Restaurant
+    getJobById(id: ID!): CompleteJobInfo
+    getTakenJobById(id: ID!): TakenJob
+    getReviewById(id: ID!): Review
+    getUserWalletByUserId(userId: ID!): UserWallet
+    getUserFoodPreferenceByUserId(userId: ID!): UserFoodPreference
+    getReportById(id: ID!): Report
+    getReferralById(id: ID!): Referral
+    getNotificationById(id: ID!): Notification
+    getTokenByUserIdAndTokenType(id: ID!, tokenType: String!): String!
+
+    listJobDeliveriesByJobId(jobId: ID!): [JobDelivery]
+    listFavouriteRestaurantsByUserId(userId: ID!): [FavouriteRestaurants]
+    listNotificationsByUserId(userId: ID!): [Notification]
+    listReviewsByRestaurantId(restaurantId: ID!): [CompleteReview]
+    listAvailableJobsInRadius(radius: Float): [Job]
+}
+
+type Mutation {
+    createUser(input: CreateUserInput!): User
+    login(email: String!, password: String!): AuthPayload
+    createLocation(input: CreateLocationInput!): Location
+    createRestaurant(input: CreateRestaurantInput!): Restaurant
+    createJob(input: CreateJobInput!): Job
+    createTakenJob(input: TakeJobInput!): TakenJob
+    createRestaurantFood(input: CreateRestaurantFoodInput!): RestaurantFood
+    createToken(input: CreateTokenInput!): Token
+    createUserWallet(input: CreateUserWalletInput!): UserWallet
+    createUserFoodPreference(input: CreateUserFoodPreferenceInput!): UserFoodPreference
+    createReferral(input: CreateReferralInput!): Referral
+    createReport(input: CreateReportInput!): Report
+    createFavouriteRestaurant(input: CreateFavouriteRestaurantInput!): FavouriteRestaurants
+    createJobDelivery(input: CreateJobDeliveryInput!): JobDelivery
+    createNotification(input: CreateNotificationInput!): Notification
+    createReview(input: CreateReviewInput!): CompleteReview
+    createReviewedOrderedItem(input: CreateReviewedOrderedItemInput!): ReviewedOrderedItem
+    createIncorrectOrderDescription(input: CreateIncorrectOrderDescriptionInput!): IncorrectOrderDescription
+    createImage(input: CreateImageInput!): Image
+    createMissingFoodTypes(input: CreateMissingFoodTypesInput!): MissingFoodTypes
+    createCompleteReview(input: CreateCompleteReviewInput!): CompleteReview
+    createCompleteJobInfo(input: CreateCompleteJobInfoInput!): CompleteJobInfo
+
+
+    updateUserById(id: ID!, input: UpdateUserInput!): User
+    updateLocationById(id: ID!, input: UpdateLocationInput!): Location
+    updateRestaurantById(id: ID!, input: UpdateRestaurantInput!): Restaurant
+    updateJobById(id: ID!, input: UpdateJobInput!): Job
+    updateJobDeliveryById(id: ID!, input: UpdateJobDeliveryInput): JobDelivery
+    updateTakenJobById(id: ID!, input: UpdateTakenJobInput!): TakenJob
+    updateRestaurantFoodByRestaurantId(restaurantId: ID!, input: UpdateRestaurantFoodInput!): RestaurantFood
+    updateTokenById(id: ID!, input: UpdateTokenInput!): Token
+    updateUserWalletByUserId(userId: ID!, input: UpdateUserWalletInput!): UserWallet
+    updateUserFoodPreferenceByUserId(userId: ID!, input: UpdateUserFoodPreferenceInput!): UserFoodPreference
+    updateReferralById(id: ID!, input: UpdateReferralInput!): Referral
+    updateReviewedOrderedItemById(id: ID!, input: UpdateReviewedOrderedItemInput!): ReviewedOrderedItem
+    updateIncorrectOrderDescriptionById(id: ID!, input: UpdateIncorrectOrderDescriptionInput!): IncorrectOrderDescription
+    updateImageById(id: ID!, input: UpdateImageInput!): Image
+    updateMissingFoodTypesByReviewId(id: ID!, input: UpdateMissingFoodTypesInput!): MissingFoodTypes
+    updateCompleteReviewById(id: ID!, input: UpdateCompleteReviewInput!): CompleteReview
+    updateCompleteJobInfoById(id: ID!, input: UpdateCompleteJobInfoInput!): CompleteJobInfo
+
+
+    deleteUserById(id: ID!): User
+    deleteLocationById(id: ID!): Location
+    deleteRestaurantById(id: ID!): Restaurant
+    deleteJobById(id: ID!): Job
+    deleteTakenJobById(id: ID!): TakenJob
+    deleteRestaurantFoodById(id: ID!): RestaurantFood
+    deleteTokenById(id: ID!): Token
+    deleteUserWalletById(id: ID!): UserWallet
+    deleteUserFoodPreferenceById(id: ID!): UserFoodPreference
+    deleteReferralById(id: ID!): Referral
+    deleteReportById(id: ID!): Report
+    deleteFavouriteRestaurantById(id: ID!): FavouriteRestaurants
+    deleteJobDeliveryById(id: ID!): JobDelivery
+    deleteNotificationById(id: ID!): Notification
+    deleteReviewById(id: ID!): CompleteReview
+    deleteReviewedOrderedItemById(id: ID!): ReviewedOrderedItem
+    deleteIncorrectOrderDescriptionById(id: ID!): IncorrectOrderDescription
+    deleteImageById(id: ID!): Image
+    deleteMissingFoodTypesById(id: ID!): MissingFoodTypes
+    deleteCompleteReviewById(id: ID!): CompleteReview
+    deleteCompleteJobInfoById(id: ID!): CompleteJobInfo
+}
+
+
+
+

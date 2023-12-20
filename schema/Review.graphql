@@ -1,0 +1,167 @@
+enum OrderTypes {
+    delivery
+    takeout
+}
+
+type Review {
+    id: String
+    user: User!
+    orderType: OrderTypes!
+    job: Job!
+    arrivalTime: String!
+    correctOrder: Boolean!
+    sealedBag: Boolean!
+    reasonImagesNotTaken: String!
+    createdAt: String
+    updatedAt: String
+}
+
+type ReviewedOrderedItem {
+    id: String
+    review: Review!
+    itemName: String!
+    rating: Int!
+    wrongTemperature: Boolean
+    wrongTaste: Boolean
+    wrongPresentation: Boolean
+    wrongOther: String
+}
+
+type Image {
+    id: String
+    review: Review!
+    imageUrl: String!
+}
+
+enum IncorrectOrderReasonTypes {
+    missing_items
+    items_prepared_incorrectly
+}
+
+type IncorrectOrderDescription {
+    id: String
+    review: Review!
+    incorrectReason: IncorrectOrderReasonTypes!
+}
+
+type MissingFoodTypes {
+    id: String
+    incorrectOrderDescription: IncorrectOrderDescription
+    mainDishMissing: Boolean
+    sideDishMissing: Boolean
+    drinksMissing: Boolean
+    saucesMissing: Boolean
+}
+
+type CompleteReview {
+    review: Review
+    images: [Image]
+    ReviewedOrderedItems: [ReviewedOrderedItem]
+    incorrectOrderDescription: IncorrectOrderDescription
+    missingFoodTypes: [MissingFoodTypes]
+}
+
+
+input CreateCompleteReviewInput {
+    userId: String!
+    orderType: OrderTypes!
+    jobId: String!
+    arrivalTime: String!
+    correctOrder: Boolean!
+    sealedBag: Boolean!
+    reasonImagesNotTaken: String!
+    reviewedOrderedItems: [CreateReviewedOrderedItemInput!]
+    images: [CreateImageInput!]
+    incorrectOrderDescription: CreateIncorrectOrderDescriptionInput
+    missingFoodTypes: [CreateMissingFoodTypesInput!]
+}
+
+input UpdateCompleteReviewInput {
+    arrivalTime: String
+    correctOrder: Boolean
+    sealedBag: Boolean
+    reasonImagesNotTaken: String
+    reviewedOrderedItems: [UpdateReviewedOrderedItemInput!]
+    images: [UpdateImageInput!]
+    incorrectOrderDescription: UpdateIncorrectOrderDescriptionInput
+    missingFoodTypes: [UpdateMissingFoodTypesInput!]
+}
+
+input CreateMissingFoodTypesInput {
+    incorrectOrderDescriptionId: String!
+    mainDishMissing: Boolean
+    sideDishMissing: Boolean
+    drinksMissing: Boolean
+    saucesMissing: Boolean
+}
+
+input UpdateMissingFoodTypesInput {
+    mainDishMissing: Boolean
+    sideDishMissing: Boolean
+    drinksMissing: Boolean
+    saucesMissing: Boolean
+}
+
+input CreateImageInput {
+    reviewId: String!
+    imageUrl: String!
+}
+
+input UpdateImageInput {
+    imageUrl: String
+}
+
+
+input CreateIncorrectOrderDescriptionInput {
+    reviewId: String!
+    incorrectReason: IncorrectOrderReasonTypes!
+}
+
+input UpdateIncorrectOrderDescriptionInput {
+    incorrectReason: IncorrectOrderReasonTypes
+}
+
+input CreateReviewedOrderedItemInput {
+    reviewId: String!
+    itemName: String!
+    rating: Int!
+    wrongTemperature: Boolean
+    wrongTaste: Boolean
+    wrongPresentation: Boolean
+    wrongOther: String
+}
+
+input UpdateReviewedOrderedItemInput {
+    itemName: String
+    rating: Int
+    wrongTemperature: Boolean
+    wrongTaste: Boolean
+    wrongPresentation: Boolean
+    wrongOther: String
+}
+
+input CreateReviewInput {
+    userId: String!
+    orderType: OrderTypes!
+    jobId: String!
+    arrivalTime: String!
+    correctOrder: Boolean!
+    sealedBag: Boolean!
+    reasonImagesNotTaken: String!
+    reviewedOrderedItems: [CreateReviewedOrderedItemInput!]
+    images: [CreateImageInput!]
+    incorrectOrderDescription: CreateIncorrectOrderDescriptionInput
+    missingFoodTypes: [CreateMissingFoodTypesInput!]
+}
+
+input UpdateReviewInput {
+    arrivalTime: String
+    correctOrder: Boolean
+    sealedBag: Boolean
+    reasonImagesNotTaken: String
+    reviewedOrderedItems: [UpdateReviewedOrderedItemInput]
+    images: [UpdateImageInput]
+    incorrectOrderDescription: UpdateIncorrectOrderDescriptionInput
+    missingFoodTypes: [UpdateMissingFoodTypesInput]
+}
+

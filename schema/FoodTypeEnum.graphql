@@ -1,0 +1,19 @@
+enum FoodType {
+    sushi
+    ramen
+    pizza
+    burrito
+    tacos
+    burger
+    fries
+    vegan
+    chicken
+    pasta
+    seafood
+    ice_cream
+    sandwiches
+    coffee
+    snacks
+    breakfast
+    baked_goods
+}

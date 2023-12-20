@@ -1,0 +1,32 @@
+enum TokenTypes {
+    ios_token
+    android_token
+}
+
+enum TokenStatus {
+    expired
+    valid
+    revoked
+}
+
+type Token {
+    id: String!
+    user: User!
+    type: TokenTypes!
+    status: TokenStatus
+    expiredAt: String!
+    createdAt: String
+    updatedAt: String
+}
+
+
+input CreateTokenInput {
+    userId: String!
+    type: TokenTypes!
+    status: TokenStatus
+    expiredAt: String!
+}
+
+input UpdateTokenInput {
+    status: TokenStatus
+}

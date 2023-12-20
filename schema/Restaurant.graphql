@@ -1,0 +1,37 @@
+type Restaurant {
+    id: String
+    name: String!
+    profilePictureUrl: String!
+    location: Location!
+    createdAt: String
+    updatedAt: String
+}
+
+type RestaurantFood {
+    id: String
+    restaurant: Restaurant!
+    foodType: FoodType!
+}
+
+input CreateRestaurantFoodInput {
+    restaurantId: String!
+    foodType: FoodType!
+}
+
+input UpdateRestaurantFoodInput {
+    foodType: FoodType
+}
+
+
+input CreateRestaurantInput {
+    name: String!
+    profilePictureUrl: String!
+    location: CreateLocationInput!
+}
+
+input UpdateRestaurantInput {
+    name: String
+    profilePictureUrl: String
+    location: CreateLocationInput
+}
+

@@ -1,0 +1,24 @@
+enum ReportTypes {
+    job
+}
+
+type Report {
+    id: String
+    user: User!
+    reportType: ReportTypes!
+    job: Job!
+    createdAt: String
+    updatedAt: String
+}
+
+
+
+input CreateReportInput {
+    userId: String!
+    reportType: ReportTypes!
+    jobId: String!
+}
+
+input UpdateReportInput {
+    reportType: ReportTypes
+}

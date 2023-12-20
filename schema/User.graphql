@@ -1,0 +1,72 @@
+type User {
+    id: String!
+    first_name: String!
+    last_name: String!
+    email: String!
+    location: Location!
+    phoneNumber: String!
+    referralCode: String
+    referralCount: Int
+    profilePictureUrl: String!
+    createdAt: String
+    updatedAt: String
+}
+
+type UserWallet {
+    id: String!
+    user: User!
+    balance: Float
+}
+
+type UserFoodPreference {
+    id: String
+    user: User!
+    foodType: FoodType
+}
+
+type FavouriteRestaurants {
+    id: String
+    user: User!
+    restaurant: Restaurant!
+}
+
+input CreateFavouriteRestaurantInput {
+    userId: String!
+    restaurantId: String!
+}
+
+input CreateUserFoodPreferenceInput {
+    userId: String!
+    foodType: FoodType
+}
+
+input UpdateUserFoodPreferenceInput {
+    foodType: FoodType
+}
+
+input CreateUserWalletInput {
+    userId: String!
+    balance: Float
+}
+
+input UpdateUserWalletInput {
+    balance: Float
+}
+
+
+input CreateUserInput {
+    first_name: String!
+    last_name: String!
+    email: String!
+    location: CreateLocationInput!
+    phoneNumber: String!
+}
+
+input UpdateUserInput {
+    first_name: String
+    last_name: String
+    email: String
+    location: CreateLocationInput
+    phoneNumber: String
+    referralCode: String
+}

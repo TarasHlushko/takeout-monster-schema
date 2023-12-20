@@ -1,0 +1,20 @@
+type Location {
+    id: String!
+    geoHash: String
+    longitude: Int!
+    latitude: Int!
+    createdAt: String
+    updatedAt: String
+}
+
+input CreateLocationInput {
+    geoHash: String
+    longitude: Int!
+    latitude: Int!
+}
+
+input UpdateLocationInput {
+    geoHash: String
+    longitude: Int
+    latitude: Int
+}
